@@ -43,5 +43,7 @@ More information is available [here](https://docs.splunk.com/Documentation/Splun
 ## Todo
 
 [ ] Add support for raw events
+
 [ ] Create tests
+
 [ ] Create more robust documentation
