@@ -20,7 +20,7 @@ setup(
     version=version(),
     author='Marcus LaFerrera',
     author_email='mlaferrera@splunk.com',
-    description='An async Splunk HEC module',
+    description='An async Splunk module for Getting Data In (GDI)',
     long_description=long_description,
     long_description_content_type="text/markdown",
     license='Apache License 2.0',
