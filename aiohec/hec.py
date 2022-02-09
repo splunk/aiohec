@@ -56,7 +56,10 @@ class SplunkHEC:
         self.verify_ssl = verify_ssl
         self.timeout = timeout
         event_meta_matrix = dict(
-            host=host, source=source, index=index, sourcetype=sourcetype
+            host=host,
+            source=source,
+            index=index,
+            sourcetype=sourcetype,
         )
         self.event_meta = {k: v for k, v in event_meta_matrix.items() if v}
         self.count = 0
@@ -84,12 +87,13 @@ class SplunkHEC:
         source: str = None,
         index: str = None,
         sourcetype: str = None,
+        time: int = None,
     ) -> None:
         logger.debug(f"add_event: {entry}")
         event: Dict[str, Union[Dict[str, Any], str]] = {"event": entry}
         event.update(
             self.set_event_meta(
-                host=host, source=source, index=index, sourcetype=sourcetype
+                host=host, source=source, index=index, sourcetype=sourcetype, time=time
             )
         )
         await self.queue.put(event)
@@ -100,9 +104,10 @@ class SplunkHEC:
         source: str = None,
         index: str = None,
         sourcetype: str = None,
+        time: int = None,
     ) -> Dict[str, str]:
         new_event_meta = dict(
-            host=host, source=source, index=index, sourcetype=sourcetype
+            host=host, source=source, index=index, sourcetype=sourcetype, time=time
         )
         event_meta = self.event_meta.copy()
         event_meta.update({k: v for k, v in new_event_meta.items() if v})

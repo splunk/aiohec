@@ -15,5 +15,5 @@
 from .hec import SplunkHEC
 from .kvstore import SplunkKVStore
 
-__version__ = "0.3.0"
+__version__ = "0.4.0"
 __author__ = "Marcus LaFerrera (@mlaferrera)"
